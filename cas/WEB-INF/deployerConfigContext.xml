@@ -133,7 +133,7 @@
 
   <!-- 通过数据库验证身份，这个得自己去实现 -->
 	<bean id="primaryAuthenticationHandler"
-      class="com.distinct.cas.jdbc.QueryDatabaseAuthenticationHandler"
+      class="org.jasig.cas.adaptors.jdbc.QueryDatabaseAuthenticationHandler"
       p:dataSource-ref="dataSource"
       p:passwordEncoder-ref="passwordEncoder"
       p:sql="select password from t_user where account=? and status = 'active'" />
