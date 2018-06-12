@@ -1,3 +1,7 @@
+缺陷：
+当 cas 单独部署到独立服务器独立域名下，单点登出（logout）不成功
+
+
 # sso-shiro-cas
 spring下使用shiro+cas配置单点登录，多个系统之间的访问，每次只需要登录一次
 
@@ -18,9 +22,9 @@ spring下使用shiro+cas配置单点登录，多个系统之间的访问，每�
       c:encodingAlgorithm="MD5"
       p:characterEncoding="UTF-8" />
 
-  <!-- 通过数据库验证身份，这个得自己去实现 -->
+  <!-- 通过数据库验证身份 -->
 	<bean id="primaryAuthenticationHandler"
-      class="com.distinct.cas.jdbc.QueryDatabaseAuthenticationHandler"
+      class="org.jasig.cas.adaptors.jdbc.QueryDatabaseAuthenticationHandler"
       p:dataSource-ref="dataSource"
       p:passwordEncoder-ref="passwordEncoder"
       p:sql="select password from t_user where account=? and status = 'active'" />
@@ -33,10 +37,7 @@ spring下使用shiro+cas配置单点登录，多个系统之间的访问，每�
 		  <property name="password" value="123456"></property>  
   </bean>
 ```
-  其中QueryDatabaseAuthenticationHandler这个类是自定义构建的，在cas/WEB-INF/lib/cas-jdbc-1.0.0.jar里面，有兴趣的同学可以发编译看下，关于几个属性的说明
-  1.  dataSource：    数据源，配置MySQL的连接信息
-  2.  passwordEncoder：   加密方式，这里用的是MD5
-  3.  sql：   sql查询语句，这个语句就是根据用户输入的账号查询其密码
+
 
 #### 以上就是单点登录管理的主要配置
 
@@ -167,9 +168,9 @@ shiro.successUrl=/users/loginSuccess
 2.各个模块的访问地址
 > cas：http://127.0.0.1:8080/cas
 
-> node1：http://127.0.0.1:8081/node1
+> node1：http://127.0.0.1:8080/spring-node-1
 
-> node2：http://127.0.0.1:8082/node2
+> node2：http://127.0.0.1:8080/spring-node-2
 
 3.访问系统
 > 输入  http://127.0.0.1:8081/node1/shiro-cas ，进入cas验证
