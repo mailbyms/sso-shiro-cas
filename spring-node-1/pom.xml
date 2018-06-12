@@ -187,7 +187,7 @@
   </dependencies>
   
   <build>
-  	<finalName>spring-node-2</finalName>
+  	<finalName>spring-node-1</finalName>
   	
   	<plugins>
   		
@@ -212,7 +212,7 @@
 				<port>8081</port>
 				<uriEncoding>UTF-8</uriEncoding>
 				<server>tomcat7</server>
-				<path>/node1</path>
+				<path>/spring-node-1</path>
 			</configuration>
 		</plugin>
 		
