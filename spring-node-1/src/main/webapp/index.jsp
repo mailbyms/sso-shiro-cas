@@ -15,10 +15,10 @@
 		<h2>查询</h2>
 	</shiro:hasPermission>
 	
-	<a href="http://127.0.0.1:8080/spring-node-1/shiro-cas">节点1</a>
+	<a href="http://192.168.0.186:8080/spring-node-1/shiro-cas">节点1</a>
 	
-	<a href="http://127.0.0.1:8080/spring-node-2/shiro-cas">节点2</a>
+	<a href="http://192.168.0.186:8080/spring-node-2/shiro-cas">节点2</a>
 	
-	<a href="http://127.0.0.1:8080/spring-node-1/logout">单点登出</a>
+	<a href="http://192.168.0.186:8080/spring-node-1/logout">单点登出</a>
 </body>
 </html>
